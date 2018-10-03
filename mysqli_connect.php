@@ -8,7 +8,7 @@
 define('DB_USER', 'iuser');
 define('DB_PASSWORD', 'asd');
 define('DB_HOST', 'localhost');
-define('DB_NAME', 'stie');
+define('DB_NAME', 'banking');
 
 // Make the connection:
 $dbc = @mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME) OR die('Could not connect to MySQL: ' . mysqli_connect_error() );

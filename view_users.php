@@ -57,7 +57,7 @@ switch ($sort) {
 }
 
 // Define the query:
-$q = "SELECT last_name, first_name, DATE_FORMAT(registration_date, '%M %d, %Y') AS dr, user_id FROM users ORDER BY $order_by LIMIT $start, $display";
+$q = "SELECT last_name, first_name FROM customers";
 $r = @mysqli_query($dbc, $q); // Run the query.
 
 // Table header:
@@ -68,7 +68,6 @@ echo '<table width="60%">
 	<th align="left"><strong>Delete</strong></th>
 	<th align="left"><strong><a href="view_users.php?sort=ln">Last Name</a></strong></th>
 	<th align="left"><strong><a href="view_users.php?sort=fn">First Name</a></strong></th>
-	<th align="left"><strong><a href="view_users.php?sort=rd">Date Registered</a></strong></th>
 </tr>
 </thead>
 <tbody>
@@ -83,7 +82,6 @@ while ($row = mysqli_fetch_array($r, MYSQLI_ASSOC)) {
 		<td align="left"><a href="delete_user.php?id=' . $row['user_id'] . '">Delete</a></td>
 		<td align="left">' . $row['last_name'] . '</td>
 		<td align="left">' . $row['first_name'] . '</td>
-		<td align="left">' . $row['dr'] . '</td>
 	</tr>
 	';
 } // End of WHILE loop.
